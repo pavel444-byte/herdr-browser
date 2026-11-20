@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Share Chrome with Herdr</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="connection.js"></script>
+  <script defer src="share.js"></script>
+</head>
+<body>
+  <main class="pair"><h1>Share Chrome with Herdr</h1>
+    <p>The person with the invite can see, navigate and control web tabs in the Chrome window you chose, including tabs where you’re signed in. Approve only an invite from someone you trust.</p>
+    <p>Keep this window open while sharing. You can stop sharing here or close this window.</p>
+    <form id="share">
+      <label for="offer">Invite from the Herdr viewer</label>
+      <textarea id="offer" required maxlength="100000" rows="3" spellcheck="false"></textarea>
+      <button id="approve">Approve and create reply</button>
+    </form>
+    <section id="reply" hidden>
+      <label for="answer">Reply for the Herdr viewer</label>
+      <textarea id="answer" readonly rows="3" spellcheck="false"></textarea>
+      <div class="actions">
+        <button type="button" id="copy">Copy reply</button>
+        <button type="button" id="stop">Stop sharing</button>
+      </div>
+      <p id="copy-status" role="status"></p>
+    </section>
+    <p role="status" id="status"></p>
+  </main>
+</body>
+</html>

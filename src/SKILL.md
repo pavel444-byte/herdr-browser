@@ -47,6 +47,15 @@ herdr-app do pane.split --direction right --pane p12
 herdr-app do agent.focus --terminal t7
 ```
 
+To open the Browser Remote connection dialog on the local device:
+
+```sh
+herdr-app do mod.open '{"name":"browser-remote"}'
+```
+
+The person sharing Chrome must approve the viewer’s invite from the extension
+and send back the reply code. See Browser Remote in the installed `AGENTS.md`.
+
 For a remote space:
 
 ```sh
