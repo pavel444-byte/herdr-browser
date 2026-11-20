@@ -78,7 +78,9 @@ function updateTabs(message) {
     select.dataset.action = "select-" + tab.id;
     select.setAttribute("role", "tab");
     select.setAttribute("aria-selected", String(tab.id === active));
-    const close = button("×", "Close " + (tab.title || "tab"), () => command({ type: "close", id: tab.id }));
+    const closeLabel = "Close " + (tab.title || "tab");
+    const close = button("×", closeLabel, () => command({ type: "close", id: tab.id }));
+    close.setAttribute("aria-label", closeLabel);
     close.dataset.action = "close-" + tab.id;
     group.append(select, close);
     return group;
@@ -235,7 +237,12 @@ function requestCopy() {
 
 $("copy-selection").addEventListener("click", requestCopy);
 $("paste-text").addEventListener("click", () => showClipboard("paste"));
-$("clipboard-close").addEventListener("click", () => $("clipboard").close());
+function closeClipboard() {
+  $("clipboard").close();
+  if (session) $("screen").focus();
+}
+
+$("clipboard-close").addEventListener("click", closeClipboard);
 $("clipboard").addEventListener("close", () => {
   $("clipboard-text").value = "";
   if (session) $("screen").focus();
@@ -244,7 +251,7 @@ $("clipboard-action").addEventListener("click", () => {
   const field = $("clipboard-text");
   if ($("clipboard").dataset.mode === "paste") {
     command({ type: "text", text: field.value.slice(0, maxText) }, true);
-    $("clipboard").close();
+    closeClipboard();
   } else {
     copy(field, $("clipboard-status"));
   }

@@ -36,7 +36,11 @@ const BrowserRemote = (() => {
       });
     }
     if (pc.signalingState === "closed") throw new Error("The session was closed.");
-    return btoa(JSON.stringify({ protocol, ...pc.localDescription.toJSON() }));
+    const details = pc.localDescription.toJSON();
+    if (!/(?:^|\n)a=candidate:/.test(details.sdp)) {
+      throw new Error("This browser couldn’t find a network address for a direct connection.");
+    }
+    return btoa(JSON.stringify({ protocol, ...details }));
   }
 
   function send(channel, message) {
