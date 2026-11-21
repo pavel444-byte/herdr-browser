@@ -936,6 +936,20 @@ has 124 programs (agents, editors, runtimes, tools, databases, infra);
   space's repo, branch, ahead/behind and uncommitted changes). Shipped mods
   are Herdr's; duplicate with `mod.clone` before editing.
 
+### Browser Remote
+
+Open **Browser Remote…** from the + menu or the command palette, or run
+`herdr-app do mod.open '{"name":"browser-remote"}'`. The mod opens a viewer
+in your local browser and can show the bundled Chrome extension folder.
+On the computer that will share Chrome, open `chrome://extensions`, turn on
+**Developer mode**, and use **Load unpacked** on the bundled folder
+`mods/browser-remote/chrome` (the folder containing `manifest.json`).
+Open the extension from the window to share, exchange the viewer's invite and
+the extension's reply privately, and keep the sharing window open. The
+viewer controls regular web tabs and transfers text when you copy or paste.
+Choose **Stop sharing** in Chrome or **Disconnect** in the viewer to end it.
+The connection is direct and needs network reachability between the browsers.
+
 ### Terminal link handlers
 
 In `mod.json`, declare what the mod can open:

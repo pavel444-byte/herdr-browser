@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Herdr Browser Remote",
+  "version": "1.0.0",
+  "description": "Share one Chrome window with the Herdr Browser Remote viewer.",
+  "permissions": ["tabs", "debugger"],
+  "incognito": "not_allowed",
+  "action": { "default_title": "Share this Chrome window with Herdr" },
+  "background": { "service_worker": "action.js" }
+}

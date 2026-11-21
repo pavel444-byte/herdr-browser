@@ -27,6 +27,22 @@ The app exposes a local control socket in its home so agents can inspect and dri
 Treat access to that home as access to the window and its commands.
 Remote connections use SSH through the core.
 
+## Browser Remote
+
+Sharing starts when you approve a viewer invite from the Chrome extension.
+The viewer can see and interact with regular web tabs in that Chrome window,
+including sites where you are signed in. Chrome displays a debugging notice
+when a tab is shared. Stop the session from the extension or close its
+sharing window. Incognito, local files, the Chrome interface and other apps
+are outside the session.
+
+The viewer and extension exchange short-lived invite and reply codes and
+connect over encrypted WebRTC. Exchange the codes privately. Connection
+discovery uses Google's public STUN service and exposes network addresses to
+it and to the other browser. Page images, input and copied text travel
+between the browsers. Networks that require a relay may prevent a direct
+connection.
+
 ## Updates and signing
 
 Installed releases check the Herdr release service, download an update, and check its SHA-256 checksum against the release manifest before unpacking it.

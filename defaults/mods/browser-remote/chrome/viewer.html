@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Herdr Browser Remote</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="connection.js"></script>
+  <script defer src="viewer.js"></script>
+</head>
+<body>
+  <main class="pair" id="pair">
+    <h1>Browser Remote</h1>
+    <p>Open <strong>Herdr Browser Remote</strong> from Chrome’s extensions menu on the computer you want to control. Give it the invite, then paste its reply here.</p>
+    <button id="invite">Create invite</button>
+    <section id="codes" hidden>
+      <label for="offer">Invite for the Chrome extension</label>
+      <textarea id="offer" readonly rows="3" spellcheck="false"></textarea>
+      <button id="copy">Copy invite</button>
+      <p id="copy-status" role="status"></p>
+      <form id="connect">
+        <label for="answer">Reply from the Chrome extension</label>
+        <textarea id="answer" required maxlength="100000" rows="3" spellcheck="false"></textarea>
+        <button id="connect-button">Connect</button>
+        <button type="button" id="cancel">Cancel</button>
+      </form>
+    </section>
+    <p id="status" role="status"></p>
+  </main>
+  <main id="browser" hidden>
+    <div class="tab-bar">
+      <div id="tabs" aria-label="Remote tabs" role="tablist"></div>
+      <button id="new-tab" aria-label="New tab" title="New tab">+</button>
+    </div>
+    <div class="toolbar">
+      <button id="back" aria-label="Back" title="Back">←</button>
+      <button id="forward" aria-label="Forward" title="Forward">→</button>
+      <button id="reload" aria-label="Reload" title="Reload">↻</button>
+      <form id="navigation">
+        <input id="address" type="text" autocomplete="off" spellcheck="false" aria-label="Remote address or search">
+        <button>Go</button>
+      </form>
+      <button id="copy-selection">Copy selection</button>
+      <button id="paste-text">Paste text</button>
+      <button id="disconnect">Disconnect</button>
+    </div>
+    <div id="screen" tabindex="0" role="group" aria-label="Remote web page">
+      <img id="frame" alt="Remote web page" draggable="false" hidden>
+    </div>
+    <p id="browser-status" role="status"></p>
+  </main>
+  <dialog id="clipboard">
+    <label id="clipboard-label" for="clipboard-text">Copied text</label>
+    <textarea id="clipboard-text" rows="5" maxlength="16000" spellcheck="false"></textarea>
+    <div class="actions">
+      <button id="clipboard-action">Copy text</button>
+      <button id="clipboard-close">Close</button>
+    </div>
+    <p id="clipboard-status" role="status"></p>
+  </dialog>
+</body>
+</html>

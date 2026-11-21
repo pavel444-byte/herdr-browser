@@ -69,6 +69,26 @@ Spaces on that machine run their terminals there, not on your computer.
 Each machine keeps its spaces, tabs and splits in its core. Connected screens share that structure and the live terminals, but keep their own focus and zoom.
 Remote work keeps running when your local window closes or your laptop sleeps, as long as the remote machine and core stay up.
 
+## Use Chrome on another device
+
+Open **Browser Remote…** from Herdr’s + menu or command palette, then choose
+**Open viewer**. On the device running the Chrome window you want to share,
+put the [bundled extension folder](defaults/mods/browser-remote/chrome) on
+disk. **Show extension folder** opens the installed copy on a device with
+Herdr. In Chrome, go to `chrome://extensions`, turn on **Developer mode**,
+and select the folder containing `manifest.json` with **Load unpacked**.
+
+1. In the viewer, choose **Create invite**.
+2. In the Chrome window to share, open **Herdr Browser Remote** from the
+   extensions menu. Paste the invite and choose **Approve and create reply**.
+3. Paste the reply into the viewer and choose **Connect**.
+
+The viewer shows the current web page and lets you navigate, type, scroll,
+open and switch tabs, and copy or paste text. The Chrome user chooses which
+window to share and can stop sharing at any time. Exchange the codes
+privately. The direct connection works best when the devices can reach each
+other, such as on the same network. [Browser Remote privacy](docs/security.md#browser-remote)
+
 ## Make it yours
 
 Open the command palette to find an action by name, or open Settings to change fonts, colors, sounds and other preferences.
